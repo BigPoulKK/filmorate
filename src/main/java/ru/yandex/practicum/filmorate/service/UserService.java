@@ -12,7 +12,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 
-
 @Service
 @Slf4j
 public class UserService {
@@ -31,16 +30,20 @@ public class UserService {
                 return user;
             }
         }
-        throw  new UserNotFoundException("id не найден");
+        throw new UserNotFoundException("id не найден");
     }
 
     public User addFriend(Long id, Long friendId) {
         byte actualId = 0;
         for (User user : userStorage.getAll()) {
-            if (user.getId().equals(id)) {actualId++;}
-            if (user.getId().equals(friendId)){actualId++;}
+            if (user.getId().equals(id)) {
+                actualId++;
+            }
+            if (user.getId().equals(friendId)) {
+                actualId++;
+            }
         }
-        if (actualId == 2){
+        if (actualId == 2) {
             for (User user : userStorage.getAll()) {
                 if (user.getId().equals(id)) {
                     user.getFriends().add(friendId);
@@ -77,10 +80,10 @@ public class UserService {
         for (User user : userStorage.getAll()) {
             if (user.getId().equals(id)) {
                 log.info("id friends: {}", user.getFriends());
-                friendsId =  user.getFriends();
+                friendsId = user.getFriends();
             }
         }
-        if (friendsId != null){
+        if (friendsId != null) {
             return friendsId.stream()
                     .map(this::getUser)
                     .collect(Collectors.toSet());
@@ -110,7 +113,7 @@ public class UserService {
             return commonFriendsId.stream()
                     .map(this::getUser)
                     .collect(Collectors.toSet());
-        }else {
+        } else {
             throw new UserNotFoundException("id не найден");
         }
     }
