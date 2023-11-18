@@ -6,6 +6,7 @@ import java.time.LocalDate;
 
 public class MinimumDateValidator implements ConstraintValidator<MinimumDate, LocalDate> {
     private LocalDate minimumDate;
+
     @Override
     public void initialize(MinimumDate constraintAnnotation) {
         minimumDate = LocalDate.parse(constraintAnnotation.value());
