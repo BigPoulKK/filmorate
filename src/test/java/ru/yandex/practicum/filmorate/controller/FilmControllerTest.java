@@ -38,6 +38,7 @@ class FilmControllerTest extends Validator<Film> {
                 .andExpect(MockMvcResultMatchers.content().json(
                         getContentFromFile("controller/response/testFilm.json")));
     }
+
     @Test
     void putNameEmpty() {
         Film film = Film.builder()
