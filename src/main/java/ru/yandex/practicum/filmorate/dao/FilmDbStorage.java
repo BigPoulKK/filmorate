@@ -14,7 +14,6 @@ import ru.yandex.practicum.filmorate.storage.LikesStorage;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
