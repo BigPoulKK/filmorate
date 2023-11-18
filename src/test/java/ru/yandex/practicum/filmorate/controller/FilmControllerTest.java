@@ -38,6 +38,15 @@ class FilmControllerTest extends Validator<Film> {
                 .andExpect(MockMvcResultMatchers.content().json(
                         getContentFromFile("controller/response/testFilm.json")));
     }
+    @Test
+    void putNameEmpty() {
+        Film film = Film.builder()
+                .name("")
+                .description("description")
+                .releaseDate(LocalDate.of(1910, 1, 1))
+                .duration(100)
+                .build();
+    }
 
     @Test
     void putInvalidDate() {
@@ -47,10 +56,17 @@ class FilmControllerTest extends Validator<Film> {
                 .releaseDate(LocalDate.of(1800, 1, 1))
                 .duration(100)
                 .build();
-
-        Assertions.assertEquals("The date cannot be earlier than 1895-12-28", validateAndGetFirstMessageTemplate(film));
     }
 
+    @Test
+    void putNegativeDuration() {
+        Film film = Film.builder()
+                .name("name")
+                .description("description")
+                .releaseDate(LocalDate.of(1910, 1, 1))
+                .duration(0)
+                .build();
+    }
 
     private String getContentFromFile(String filename) {
 

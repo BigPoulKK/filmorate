@@ -26,7 +26,7 @@ public class ErrorHandler {
         return Map.of("error", "объект не найден", "errorMessage", e.getMessage());
     }
 
-    @ExceptionHandler
+    @ExceptionHandler(NullPointerException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public Map<String, String> getException(final Throwable e) {
         return Map.of("error", "Произошла непредвиденная ошибка.", "errorMessage", e.getMessage());
