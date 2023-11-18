@@ -22,7 +22,7 @@ import java.time.LocalDate;
 @AutoConfigureMockMvc
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
-class UserControllerTest  extends Validator<User> {
+class UserControllerTest extends Validator<User> {
 
     public static final String PATH = "/users";
     @Autowired(required = true)
@@ -75,12 +75,12 @@ class UserControllerTest  extends Validator<User> {
         Assertions.assertEquals("wrong birthday date", validateAndGetFirstMessageTemplate(user));
     }
 
-    private String getContentFromFile(String filename){
+    private String getContentFromFile(String filename) {
 
         try {
             return Files.readString(ResourceUtils.getFile("classpath:" + filename).toPath(),
                     StandardCharsets.UTF_8);
-        }catch (IOException exception){
+        } catch (IOException exception) {
             return "";
         }
     }

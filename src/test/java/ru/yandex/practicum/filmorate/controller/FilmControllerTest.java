@@ -22,7 +22,7 @@ import java.time.LocalDate;
 @AutoConfigureMockMvc
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
-class FilmControllerTest  extends Validator<Film> {
+class FilmControllerTest extends Validator<Film> {
 
     public static final String PATH = "/films";
     @Autowired(required = true)
@@ -52,12 +52,12 @@ class FilmControllerTest  extends Validator<Film> {
     }
 
 
-    private String getContentFromFile(String filename){
+    private String getContentFromFile(String filename) {
 
         try {
             return Files.readString(ResourceUtils.getFile("classpath:" + filename).toPath(),
                     StandardCharsets.UTF_8);
-        }catch (IOException exception){
+        } catch (IOException exception) {
             return "";
         }
     }
