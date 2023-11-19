@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS films(
    release_date date,
    rate int default 0,
    duration int,
-   mpa_id int REFERENCES mpa (id)
+   mpa_id int REFERENCES mpa (id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS likes(

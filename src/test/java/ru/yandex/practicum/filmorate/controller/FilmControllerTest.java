@@ -19,8 +19,6 @@ import java.time.LocalDate;
 
 
 @AutoConfigureMockMvc
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@ActiveProfiles("test")
 class FilmControllerTest extends Validator<Film> {
 
     public static final String PATH = "/films";

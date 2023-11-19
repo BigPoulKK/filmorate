@@ -20,8 +20,6 @@ import java.time.LocalDate;
 
 
 @AutoConfigureMockMvc
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@ActiveProfiles("test")
 class UserControllerTest extends Validator<User> {
 
     public static final String PATH = "/users";
