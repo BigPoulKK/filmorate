@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS friends(
 );
 
 CREATE TABLE IF NOT EXISTS mpa(
-   id  int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+   id  int NOT NULL PRIMARY KEY,
    name varchar(255)
 );
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS likes(
 );
 
 CREATE TABLE IF NOT EXISTS genre(
-   id  int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+   id  int NOT NULL PRIMARY KEY,
    name varchar(255)
 );
 
