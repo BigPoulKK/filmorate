@@ -55,6 +55,10 @@ public class UserService {
         throw new UserNotFoundException("id не найден");
     }
 
+    public List<User> getAll() {
+        return userStorage.getAll();
+    }
+
     public User addFriend(Long id, Long friendId) {
         User user = userStorage.getUser(id);
         User friendOfUser = userStorage.getUser(friendId);

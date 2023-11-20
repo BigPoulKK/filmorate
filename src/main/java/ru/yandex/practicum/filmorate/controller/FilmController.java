@@ -3,7 +3,6 @@ package ru.yandex.practicum.filmorate.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ru.yandex.practicum.filmorate.dao.FilmDbStorage;
 import ru.yandex.practicum.filmorate.model.Film;
 import ru.yandex.practicum.filmorate.service.FilmService;
 
@@ -17,12 +16,10 @@ import java.util.List;
 public class FilmController {
 
     FilmService filmService;
-    FilmDbStorage filmDbStorage;
 
     @Autowired
-    public FilmController(FilmService filmService, FilmDbStorage filmDbStorage) {
+    public FilmController(FilmService filmService) {
         this.filmService = filmService;
-        this.filmDbStorage = filmDbStorage;
     }
 
     @PostMapping
@@ -37,7 +34,7 @@ public class FilmController {
 
     @GetMapping
     public List<Film> getAll() {
-        return filmDbStorage.getAllFilms();
+        return filmService.getAllFilms();
     }
 
     @GetMapping("/{id}")

@@ -1,8 +1,5 @@
 package ru.yandex.practicum.filmorate.model;
 
-import lombok.EqualsAndHashCode;
-
-@EqualsAndHashCode(of = {"friendId"})
 public class Friends {
     public Long userId;
     public Long friendId;

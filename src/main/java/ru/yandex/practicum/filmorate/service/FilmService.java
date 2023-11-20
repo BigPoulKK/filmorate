@@ -46,7 +46,6 @@ public class FilmService {
         throw new FilmNotFoundException("id не найден");
     }
 
-
     public Film getFilm(Long id) {
         Film film = filmStorage.getFilm(id);
         if (film != null) {
@@ -54,6 +53,10 @@ public class FilmService {
             return film;
         }
         throw new FilmNotFoundException("id не найден");
+    }
+
+    public List<Film> getAllFilms() {
+        return filmStorage.getAllFilms();
     }
 
     public Film addLike(Long id, Long filmId) {

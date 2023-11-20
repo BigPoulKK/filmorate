@@ -2,7 +2,6 @@ package ru.yandex.practicum.filmorate.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ru.yandex.practicum.filmorate.dao.UserDbStorage;
 import ru.yandex.practicum.filmorate.model.User;
 import ru.yandex.practicum.filmorate.service.UserService;
 
@@ -14,13 +13,10 @@ import java.util.Set;
 @RequestMapping("/users")
 public class UserController {
 
-
-    UserDbStorage userDbStorage;
     UserService userService;
 
     @Autowired
-    public UserController(UserDbStorage userDbStorage, UserService userService) {
-        this.userDbStorage = userDbStorage;
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
@@ -36,7 +32,7 @@ public class UserController {
 
     @GetMapping
     public List<User> getAll() {
-        return userDbStorage.getAll();
+        return userService.getAll();
     }
 
     @GetMapping("/{id}")
